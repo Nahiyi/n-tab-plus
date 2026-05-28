@@ -382,8 +382,8 @@ function updateGithubGist(content) {
     handleGithubGistLog.push(`${chrome.i18n.getMessage("directUpdate")}`)
     let _content = JSON.stringify(content);
     let data = {
-        "description": "myCloudSkyMonster", "public": false, "files": {
-            "brower_Tabs.json": {"content": _content}
+        "description": "N-Tab-Plus", "public": false, "files": {
+            "n-tab-plus.json": {"content": _content}
         }
     }
     let myHeaders = new Headers();
@@ -421,8 +421,8 @@ function updateGiteeGist(content) {
     handleGiteeGistLog.push(`${chrome.i18n.getMessage("directUpdate")}`)
     let _content = JSON.stringify(content);
     let data = {
-        "description": "myCloudSkyMonster", "public": false, "files": {
-            "brower_Tabs.json": {"content": _content}
+        "description": "N-Tab-Plus", "public": false, "files": {
+            "n-tab-plus.json": {"content": _content}
         }
     }
     let myHeaders = new Headers();
