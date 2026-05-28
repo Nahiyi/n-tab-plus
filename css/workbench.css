@@ -1,0 +1,427 @@
+* {
+    text-shadow: transparent 0 0 0, rgba(0, 0, 0, 0.68) 0 0 0 !important;
+}
+
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+}
+
+.group-amount {
+    font-size: 120%;
+}
+
+.group-name {
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.group-date {
+    opacity: 0.7;
+}
+
+.group-title {
+    margin-bottom: 10px;
+}
+
+.restore-all {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #234da7;
+}
+
+.restore-all:hover {
+    color: #234da7;
+    text-decoration: underline;
+}
+
+.delete-all {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #234da7;
+}
+
+.delete-all:hover {
+    color: #234da7;
+    text-decoration: underline;
+}
+
+.about-lock {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #234da7;
+}
+
+.about-lock:hover {
+    color: #234da7;
+    text-decoration: underline;
+}
+
+.about-top {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #234da7;
+}
+
+.about-top:hover {
+    color: #234da7;
+    text-decoration: underline;
+}
+
+.about-name {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #234da7;
+}
+
+.about-name:hover {
+    color: #234da7;
+    text-decoration: underline;
+}
+
+.about-recover {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #234da7;
+}
+
+.about-recover:hover {
+    color: #234da7;
+    text-decoration: underline;
+}
+
+ul {
+    margin-left: 2em;
+}
+
+.li-hover:hover {
+    cursor: pointer;
+    background: #f0f0f0;
+    padding-bottom: 3px;
+}
+
+.li-standard {
+    padding-bottom: 3px;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.delete-link {
+    font-size: 70%;
+    font-weight: bold;
+    background: #eee;
+    color: white;
+    display: inline-block;
+    border-radius: 1em;
+    padding: 0 .3em;
+    margin-right: 10px;
+}
+
+.no-delete-link {
+    margin-right: 5px;
+}
+
+.delete-link:before {
+    content: "✖";
+}
+
+*:hover > .delete-link {
+    background: #aaa;
+}
+
+.delete-link:hover {
+    background: red;
+    cursor: pointer;
+}
+
+.link, .link:visited {
+    color: #234da7;
+    text-decoration: none;
+    padding: .2em;
+    font-size: 85%;
+}
+
+.link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.my-handle {
+    cursor: move;
+}
+
+.ghost {
+    opacity: .5;
+    background: #C8EBFB;
+}
+
+.tabs {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.lock-img {
+    height: 18px;
+    margin-right: 6px;
+    padding-top: 3px;
+}
+
+.no-lock-img {
+    height: 18px;
+    display: none;
+}
+
+.pin-img {
+    height: 25px;
+}
+
+.no-pin-img {
+    height: 25px;
+    display: none;
+}
+
+.group-title-input {
+    width: 75px;
+    overflow: hidden;
+    border: none;
+    margin-right: 5px;
+}
+
+.line {
+    text-decoration: none;
+    padding: .2em;
+}
+
+.div-top {
+    margin-top: 15px;
+}
+
+.option {
+    margin: 15px 0;
+}
+
+.option:first-of-type {
+    margin-top: 0;
+}
+
+.desc {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.choices {
+    font-size: .9em;
+}
+
+#saved {
+    display: none;
+    background: green;
+    color: white;
+    width: 300px;
+    margin-top: 15px;
+}
+
+.taskButtonGroup {
+    float: right;
+    margin-right: 20px;
+}
+
+.addTaskTextClass {
+    margin: 10px;
+}
+
+.chrome-plugin-simple-tip {
+    position: fixed;
+    z-index: 999999; /* 这里是该元素与显示屏的距离，据说越大越好，但是我也没有看到效果，因为没有它也是可以的 */
+    padding: 16px 10px;
+    color: #FFFFFF;
+    min-width: 150px;
+    max-width: 700px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 20px;
+    background: #003366;
+    /*background-image: linear-gradient(to bottom, #dff0d8, #70a800);*/
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    transition: top .4s;
+}
+
+/* 分类侧边栏样式 */
+#sidebar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    bottom: 0;
+    width: 16.66666667%;
+    overflow-y: auto;
+    z-index: 100;
+    padding-right: 0;
+}
+
+#sidebar .panel {
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+#sidebar .panel-heading {
+    border-radius: 0;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+}
+
+#sidebar .list-group-item {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+
+#sidebar .list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
+#sidebar .list-group-item.active {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+#sidebar .delete-category,
+#sidebar .rename-category {
+    cursor: pointer;
+    color: #999;
+    margin-right: 8px !important;
+}
+
+#sidebar .delete-category:hover,
+#sidebar .rename-category:hover {
+    color: #333;
+}
+
+#sidebar .category-name {
+    cursor: default;
+    user-select: none;
+}
+
+#content {
+    margin-left: 16.66666667%;
+    padding-left: 15px;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    #sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    #content {
+        margin-left: 0;
+    }
+}
+
+/* 分类下拉框样式 */
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.custom-select-display {
+    padding: 4px 24px 4px 10px;
+    font-size: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.2s ease;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    min-width: 70px;
+    text-align: center;
+    user-select: none;
+}
+
+.custom-select-display:hover {
+    border-color: #337ab7;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 100%;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    overflow: hidden;
+    animation: dropdownFadeIn 0.15s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-select-dropdown.open {
+    display: block;
+}
+
+.custom-select-option {
+    padding: 8px 14px;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    white-space: nowrap;
+}
+
+.custom-select-option:hover {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.custom-select-option:first-child {
+    border-radius: 12px 12px 0 0;
+}
+
+.custom-select-option:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+.custom-select-option:only-child {
+    border-radius: 12px;
+}
+
+.sortable-handle {
+    cursor: move;
+    color: #ccc;
+    margin-right: 5px;
+}
+
+.sortable-handle:hover {
+    color: #333;
+}
+
+.category-item {
+    cursor: pointer;
+}

@@ -1,0 +1,461 @@
+{
+	"pluginDesc": {
+		"message": "浏览器标签管理工具，对标OneTab"
+	},
+	"showAllTabs": {
+		"message": "打开后台管理页"
+	},
+	"sendAllTabs": {
+		"message": "发送所有标签"
+	},
+	"toggleFeatureSaveAllTabs": {
+		"message": "快捷键触发功能-发送所有标签"
+	},
+	"toggleFeatureSaveCurrentTabs": {
+		"message": "快捷键触发功能-发送当前标签"
+	},
+	"sendCurrentTab": {
+		"message": "发送当前标签"
+	},
+	"sendOtherTabs": {
+		"message": "发送其他标签"
+	},
+	"cuttingLine": {
+		"message": "我是分割线"
+	},
+	"deadLine": {
+		"message": "我是有底线的"
+	},
+	"optionsValue": {
+		"message": "查看配置"
+	},
+	"restoreKey": {
+		"message": "点击 “打开整组” 或点击 单个标签 时："
+	},
+	"restoreValueDelete": {
+		"message": "打开标签并将其从标签列表中删除（当标签组锁定时，不会删除）"
+	},
+	"restoreValueLive": {
+		"message": "打开标签但不将其从标签列表中删除"
+	},
+	"openBackgroundAfterSendTab": {
+		"message": "点击 “发送当前标签” 或 “发送所有标签” 或 “发送其他标签” 后："
+	},
+	"openBackgroundAfterSendTabYes": {
+		"message": "打开后台页"
+	},
+	"openBackgroundAfterSendTabNo": {
+		"message": "不打开后台页"
+	},
+	"saveButtonValue": {
+		"message": "保存配置"
+	},
+	"savedValue": {
+		"message": "已保存"
+	},
+	"tabsNo": {
+		"message": "个标签"
+	},
+	"totals": {
+		"message": "条记录"
+	},
+	"home": {
+		"message": "首页"
+	},
+	"hideShowImportOnetabFunction": {
+		"message": "导入OneTab格式"
+	},
+	"hideShowImportDefaultFunction": {
+		"message": "导入默认格式"
+	},
+	"hideShowExportFunction": {
+		"message": "导出"
+	},
+	"dragTitle": {
+		"message": "是否拖曳标签组"
+	},
+	"dragTabs": {
+		"message": "是否拖曳标签"
+	},
+	"dragOpenTranslate": {
+		"message": "是否划词翻译"
+	},
+	"pushToGithubGist": {
+		"message": "推送到GitHub的gist"
+	},
+	"pullFromGithubGist": {
+		"message": "从GitHub的gist拉取"
+	},
+	"pushToGiteeGist": {
+		"message": "推送到Gitee的gist"
+	},
+	"pullFromGiteeGist": {
+		"message": "从Gitee的gist拉取"
+	},
+	"confirmKey": {
+		"message": "请输入\"确定\"表示确认："
+	},
+	"confirmValue": {
+		"message": "会覆盖的，小心谨慎思考这操作到底要不要！！！请输入\"确定\"表示确认"
+	},
+	"importToLocal": {
+		"message": "导入"
+	},
+	"exportToLocal": {
+		"message": "导出"
+	},
+	"importWarn": {
+		"message": "PS：导入的是从OneTab导出的内容，参照以上的例子，格式说明：换行表示分组，|前面是网址，|后面是标题，|两边都有空格"
+	},
+	"exportWarn": {
+		"message": "PS：导出后自行复制保存，格式说明：换行表示分组，|前面是网址，|后面是标题，|两边都有空格"
+	},
+	"packUp": {
+		"message": "收起"
+	},
+	"gistFunction": {
+		"message": "同步功能"
+	},
+	"otherFunction": {
+		"message": "其他功能"
+	},
+	"githubApiStatusSuccess": {
+		"message": "GitHub API 状态 : 正常"
+	},
+	"giteeApiStatusSuccess": {
+		"message": "Gitee API 状态 : 正常"
+	},
+	"githubApiStatusFailed": {
+		"message": "GitHub API 状态 : 异常"
+	},
+	"giteeApiStatusFailed": {
+		"message": "Gitee API 状态 : 异常"
+	},
+	"githubApiStatusError": {
+		"message": "GitHub API 状态 : 报错"
+	},
+	"giteeApiStatusError": {
+		"message": "Gitee API 状态 : 报错"
+	},
+	"yes": {
+		"message": "是"
+	},
+	"no": {
+		"message": "否"
+	},
+	"pushToGithubGistIng": {
+		"message": "正在推送到GitHub的gist，请稍等！"
+	},
+	"pullFromGithubGistIng": {
+		"message": "正在从GitHub的gist拉取，请稍等！"
+	},
+	"pushToGiteeGistIng": {
+		"message": "正在推送到Gitee的gist，请稍等！"
+	},
+	"pullFromGiteeGistIng": {
+		"message": "正在从Gitee的gist拉取，请稍等！"
+	},
+	"startPushToGithubGistTask": {
+		"message": "开始推送到GitHub的gist的任务"
+	},
+	"startPullFromGithubGistTask": {
+		"message": "开始从GitHub的gist拉取的任务"
+	},
+	"startPushToGiteeGistTask": {
+		"message": "开始推送到Gitee的gist的任务"
+	},
+	"startPullFromGiteeGistTask": {
+		"message": "开始从Gitee的gist拉取的任务"
+	},
+	"endPushToGithubGistTask": {
+		"message": "推送到GitHub的gist的任务结束"
+	},
+	"endPullFromGithubGistTask": {
+		"message": "从GitHub的gist拉取的任务完成"
+	},
+	"endPushToGiteeGistTask": {
+		"message": "推送到Gitee的gist的任务结束"
+	},
+	"endPullFromGiteeGistTask": {
+		"message": "从Gitee的gist拉取的任务完成"
+	},
+	"clickPushToGithubGist": {
+		"message": "手动点击推送到GitHub的gist"
+	},
+	"autoPushToGithubGist": {
+		"message": "自动推送到GitHub的gist"
+	},
+	"clickPullFromGithubGist": {
+		"message": "手动点击从GitHub的gist拉取"
+	},
+	"clickPushToGiteeGist": {
+		"message": "手动点击推送到Gitee的gist"
+	},
+	"autoPushToGiteeGist": {
+		"message": "自动推送到Gitee的gist"
+	},
+	"clickPullFromGiteeGist": {
+		"message": "手动点击从Gitee的gist拉取"
+	},
+	"startCheckGithubTokenSaved": {
+		"message": "开始检查GitHub token有没有保存"
+	},
+	"startCheckGiteeTokenSaved": {
+		"message": "开始检查Gitee token有没有保存"
+	},
+	"githubTokenSaved": {
+		"message": "GitHub token有保存"
+	},
+	"giteeTokenSaved": {
+		"message": "Gitee token有保存"
+	},
+	"githubTokenNoSaved": {
+		"message": "GitHub token没有保存"
+	},
+	"giteeTokenNoSaved": {
+		"message": "Gitee token没有保存"
+	},
+	"saveTokenKey": {
+		"message": "请输入token："
+	},
+	"saveTokenValue": {
+		"message": "请确保token是正确的！！！"
+	},
+	"githubTokenSaveSuccess": {
+		"message": "GitHub token 保存完毕"
+	},
+	"giteeTokenSaveSuccess": {
+		"message": "Gitee token 保存完毕"
+	},
+	"startCheckGistIdSaved": {
+		"message": "开始检查gistId有没有保存"
+	},
+	"gistIdSaved": {
+		"message": "gistId有保存"
+	},
+	"gistIdNoSaved": {
+		"message": "gistId没有保存"
+	},
+	"directUpdate": {
+		"message": "已经创建了gist，直接开始更新"
+	},
+	"updateSuccess": {
+		"message": "更新成功"
+	},
+	"updateFailed": {
+		"message": "更新失败"
+	},
+	"startCheckGistCreated": {
+		"message": "检查是否已经创建了gist"
+	},
+	"gistCreated": {
+		"message": "已经创建了gist"
+	},
+	"gistNoCreated": {
+		"message": "还没有创建gist"
+	},
+	"getGistIdAndSaved": {
+		"message": "获取gistId并保存完毕"
+	},
+	"noGistCreatedAndOver": {
+		"message": "还没有创建gist,没有内容可以拉,结束任务"
+	},
+	"startCreateGithubGist": {
+		"message": "还没有创建GitHub的gist,开始创建"
+	},
+	"startCreateGiteeGist": {
+		"message": "还没有创建Gitee的gist,开始创建"
+	},
+	"createSuccess": {
+		"message": "创建成功"
+	},
+	"createFailed": {
+		"message": "创建失败"
+	},
+	"getGithubGistById": {
+		"message": "根据GitHub的gistId拉取gist"
+	},
+	"getGithubGistByRawUrl": {
+		"message": "被截断了，根据raw_url拉取gist"
+	},
+	"getGiteeGistById": {
+		"message": "根据Gitee的gistId拉取gist"
+	},
+	"pullSuccess": {
+		"message": "拉取gist成功"
+	},
+	"pullFailed": {
+		"message": "拉取gist失败"
+	},
+	"start": {
+		"message": "开始："
+	},
+	"end": {
+		"message": "结束："
+	},
+	"clickPushGithub": {
+		"message": "手动推送到GitHub"
+	},
+	"autoPushGithub": {
+		"message": "自动推送到GitHub"
+	},
+	"clickPullGithub": {
+		"message": "手动从GitHub拉取"
+	},
+	"clickPushGitee": {
+		"message": "手动推送到Gitee"
+	},
+	"autoPushGitee": {
+		"message": "自动推送到Gitee"
+	},
+	"clickPullGitee": {
+		"message": "手动从Gitee拉取"
+	},
+	"waitForMinutes": {
+		"message": " 秒等待"
+	},
+	"close": {
+		"message": "关闭"
+	},
+	"days": {
+		"message": "天"
+	},
+	"hours": {
+		"message": "时"
+	},
+	"minutes": {
+		"message": "分"
+	},
+	"seconds": {
+		"message": "秒"
+	},
+	"sourceCode": {
+		"message": "对本项目的源码有兴趣的话欢迎移步star："
+	},
+	"usedSpace": {
+		"message": "已使用："
+	},
+	"autoSync": {
+		"message": "是否自动同步"
+	},
+	"noLog": {
+		"message": "还没有产生日志！"
+	},
+	"noTabs": {
+		"message": "还没有收藏！"
+	},
+	"showLog": {
+		"message": "查看日志"
+	},
+	"secondWait": {
+		"message": "秒等待"
+	},
+	"usedTime": {
+		"message": "用时："
+	},
+	"backToTop": {
+		"message": "返回顶部"
+	},
+	"restoreGroup": {
+		"message": "打开整组"
+	},
+	"deleteAll": {
+		"message": "删除整组"
+	},
+	"importTextareaTip": {
+		"message": "请输入格式正确的内容！"
+	},
+	"unLock": {
+		"message": "取消锁定"
+	},
+	"lock": {
+		"message": "锁定该组"
+	},
+	"toTop": {
+		"message": "置顶该组"
+	},
+	"noToTop": {
+		"message": "取消置顶"
+	},
+	"nameThis": {
+		"message": "命名该组"
+	},
+	"add": {
+		"message": "新增"
+	},
+	"update": {
+		"message": "更新"
+	},
+	"cancle": {
+		"message": "取消"
+	},
+	"refresh": {
+		"message": "刷新"
+	},
+	"tabsMenu": {
+		"message": "标签功能菜单"
+	},
+	"remindMenu": {
+		"message": "定时功能菜单"
+	},
+	"showError": {
+		"message": "出错了！"
+	},
+	"goToOptions": {
+		"message": "请去配置页面进行配置！"
+	},
+	"githubToken": {
+		"message": "GitHub Token"
+	},
+	"giteeToken": {
+		"message": "Gitee Token"
+	},
+	"input": {
+		"message": "请输入"
+	},
+	"existed": {
+		"message": "已存："
+	},
+	"group": {
+		"message": "组"
+	},
+	"contract": {
+		"message": "有问题可直接联系微信：scoful 请注明来处和来意哦~"
+	},
+	"donate": {
+		"message": "多谢投喂"
+	},
+	"cannotDelete": {
+		"message": "锁定状态下不能删除！"
+	},
+	"cannotRecover": {
+		"message": "锁定状态下不能还原！"
+	},
+	"confirm": {
+		"message": "请确认"
+	},
+	"confirmationDel": {
+		"message": "您确定要删除吗？"
+	},
+	"confirmationRecover": {
+		"message": "您确定要还原吗？"
+	},
+	"sendLeftTabs": {
+		"message": "发送左侧所有标签"
+	},
+	"sendRightTabs": {
+		"message": "发送右侧所有标签"
+	},
+	"showBaks": {
+		"message": "回收站"
+	},
+	"deleted": {
+		"message": "已删："
+	},
+	"recover": {
+		"message": "还原整组"
+	},
+	"noDelTabs": {
+		"message": "回收站空空如也！"
+	}
+}

@@ -1,0 +1,461 @@
+{
+	"pluginDesc": {
+		"message": "Browser Tab Management Tool: Comparable to OneTab"
+	},
+	"showAllTabs": {
+		"message": "show all tabs"
+	},
+	"sendAllTabs": {
+		"message": "send all tabs"
+	},
+	"toggleFeatureSaveAllTabs": {
+		"message": "toggle feature save all tabs"
+	},
+	"toggleFeatureSaveCurrentTabs": {
+		"message": "toggle feature save current tabs"
+	},
+	"sendCurrentTab": {
+		"message": "send current tab"
+	},
+	"sendOtherTabs": {
+		"message": "send other tabs"
+	},
+	"cuttingLine": {
+		"message": "I am cutting line"
+	},
+	"deadLine": {
+		"message": "I am dead line"
+	},
+	"optionsValue": {
+		"message": "Options"
+	},
+	"restoreKey": {
+		"message": "On clicking \"Restore group\" or restoring a single tab:"
+	},
+	"restoreValueDelete": {
+		"message": " Delete opened links from tab groups(When the tag group is locked, do not delete)"
+	},
+	"restoreValueLive": {
+		"message": "  Leave the links alone"
+	},
+	"openBackgroundAfterSendTab": {
+		"message": "After clicked \"send current tab\":"
+	},
+	"openBackgroundAfterSendTabYes": {
+		"message": "Show all tabs"
+	},
+	"openBackgroundAfterSendTabNo": {
+		"message": "Don't show all tabs"
+	},
+	"saveButtonValue": {
+		"message": "Save options"
+	},
+	"savedValue": {
+		"message": "It saved."
+	},
+	"tabsNo": {
+		"message": " TABS"
+	},
+	"totals": {
+		"message": " Records"
+	},
+	"home": {
+		"message": "Home"
+	},
+	"hideShowImportOnetabFunction": {
+		"message": "Import OneTab Mode"
+	},
+	"hideShowImportDefaultFunction": {
+		"message": "Import Default Mode"
+	},
+	"hideShowExportFunction": {
+		"message": "Export"
+	},
+	"dragTitle": {
+		"message": "Super Drag Title"
+	},
+	"dragTabs": {
+		"message": "Super Drag Tabs"
+	},
+	"dragOpenTranslate": {
+		"message": "Cross Word Translation"
+	},
+	"pushToGithubGist": {
+		"message": "Push To GitHub's gist"
+	},
+	"pullFromGithubGist": {
+		"message": "Pull From GitHub's gist"
+	},
+	"pushToGiteeGist": {
+		"message": "Push To Gitee's gist"
+	},
+	"pullFromGiteeGist": {
+		"message": "Pull From Gitee's gist"
+	},
+	"confirmKey": {
+		"message": "Please input \"confirm\" to ensure: "
+	},
+	"confirmValue": {
+		"message": "Warn!!! It will be override, please deep think about it !!! Please input \"confirm\" to ensure"
+	},
+	"importToLocal": {
+		"message": "import to local"
+	},
+	"exportToLocal": {
+		"message": "export to local"
+	},
+	"importWarn": {
+		"message": "PS:The import contents is from OneTab extension, Format refer to the example above: Newline means grouping, | before is URL, and | behind is title, and | have spaces on both sides"
+	},
+	"exportWarn": {
+		"message": "PS:The export contents save by yourself, Format description: Newline means grouping, | before is URL, and | behind is title, and | have spaces on both sides"
+	},
+	"packUp": {
+		"message": "pack up"
+	},
+	"gistFunction": {
+		"message": "Sync"
+	},
+	"otherFunction": {
+		"message": "Other"
+	},
+	"githubApiStatusSuccess": {
+		"message": "GitHub API status : SUCCESS"
+	},
+	"giteeApiStatusSuccess": {
+		"message": "Gitee API status : SUCCESS"
+	},
+	"githubApiStatusFailed": {
+		"message": "GitHub API status : FAILED"
+	},
+	"giteeApiStatusFailed": {
+		"message": "Gitee API status : FAILED"
+	},
+	"githubApiStatusError": {
+		"message": "GitHub API status : ERROR"
+	},
+	"giteeApiStatusError": {
+		"message": "Gitee API status : ERROR"
+	},
+	"yes": {
+		"message": "yes"
+	},
+	"no": {
+		"message": "no"
+	},
+	"pushToGithubGistIng": {
+		"message": "push to GitHub's Gist ing, please wait!"
+	},
+	"pullFromGithubGistIng": {
+		"message": "pull from GitHub's Gist ing, please wait!"
+	},
+	"pushToGiteeGistIng": {
+		"message": "push to Gitee's Gist ing, please wait!"
+	},
+	"pullFromGiteeGistIng": {
+		"message": "pull from Gitee's Gist ing, please wait!"
+	},
+	"startPushToGithubGistTask": {
+		"message": "start push to GitHub's gist task"
+	},
+	"startPullFromGithubGistTask": {
+		"message": "start pull from GitHub's gist task"
+	},
+	"startPushToGiteeGistTask": {
+		"message": "start push to Gitee's gist task"
+	},
+	"startPullFromGiteeGistTask": {
+		"message": "start pull from Gitee's gist task"
+	},
+	"endPushToGithubGistTask": {
+		"message": "push to GitHub's gist task end"
+	},
+	"endPullFromGithubGistTask": {
+		"message": "pull from GitHub's gist task end"
+	},
+	"endPushToGiteeGistTask": {
+		"message": "push to Gitee's gist task end"
+	},
+	"endPullFromGiteeGistTask": {
+		"message": "pull from Gitee's gist task end"
+	},
+	"clickPushToGithubGist": {
+		"message": "click push to GitHub's gist"
+	},
+	"autoPushToGithubGist": {
+		"message": "auto push to GitHub's gist"
+	},
+	"clickPullFromGithubGist": {
+		"message": "click pull from GitHub's gist"
+	},
+	"clickPushToGiteeGist": {
+		"message": "click push to Gitee's gist"
+	},
+	"autoPushToGiteeGist": {
+		"message": "auto push to Gitee's gist"
+	},
+	"clickPullFromGiteeGist": {
+		"message": "click pull from Gitee's gist"
+	},
+	"startCheckGithubTokenSaved": {
+		"message": "start check GitHub token is saved ?"
+	},
+	"startCheckGiteeTokenSaved": {
+		"message": "start check Gitee token is saved ?"
+	},
+	"githubTokenSaved": {
+		"message": "GitHub token had saved"
+	},
+	"giteeTokenSaved": {
+		"message": "Gitee token had saved"
+	},
+	"githubTokenNoSaved": {
+		"message": "GitHub token had not saved"
+	},
+	"giteeTokenNoSaved": {
+		"message": "Gitee token had not saved"
+	},
+	"saveTokenKey": {
+		"message": "please input token:"
+	},
+	"saveTokenValue": {
+		"message": "Warn!!! please ensure your token is right!!!"
+	},
+	"githubTokenSaveSuccess": {
+		"message": "GitHub token save success!"
+	},
+	"giteeTokenSaveSuccess": {
+		"message": "Gitee token save success!"
+	},
+	"startCheckGistIdSaved": {
+		"message": "start check gistId is saved ?"
+	},
+	"gistIdSaved": {
+		"message": "gistId had saved"
+	},
+	"gistIdNoSaved": {
+		"message": "gistId had not saved"
+	},
+	"directUpdate": {
+		"message": "gist had been created, direct update."
+	},
+	"updateSuccess": {
+		"message": "update success"
+	},
+	"updateFailed": {
+		"message": "update failed!"
+	},
+	"startCheckGistCreated": {
+		"message": "start check gist is created ?"
+	},
+	"gistCreated": {
+		"message": "gist had created"
+	},
+	"gistNoCreated": {
+		"message": "gist had not created"
+	},
+	"getGistIdAndSaved": {
+		"message": "get gistId and saved success"
+	},
+	"noGistCreatedAndOver": {
+		"message": "had not created gist, nothing can pull, it's over!"
+	},
+	"startCreateGithubGist": {
+		"message": "had not created gist, start create GitHub gist now!"
+	},
+	"startCreateGiteeGist": {
+		"message": "had not created gist, start create Gitee gist now!"
+	},
+	"createSuccess": {
+		"message": " create success"
+	},
+	"createFailed": {
+		"message": "create failed"
+	},
+	"getGithubGistById": {
+		"message": "get GitHub's gist by gistId"
+	},
+	"getGithubGistByRawUrl": {
+		"message": "be truncated, get GitHub's gist by raw_url"
+	},
+	"getGiteeGistById": {
+		"message": "get Gitee's gist by gistId"
+	},
+	"pullSuccess": {
+		"message": "pull gist success"
+	},
+	"pullFailed": {
+		"message": "pull gist failed"
+	},
+	"start": {
+		"message": "start: "
+	},
+	"end": {
+		"message": "end: "
+	},
+	"clickPushGithub": {
+		"message": "CLICK TO PUSH TO GitHub'S GIST"
+	},
+	"autoPushGithub": {
+		"message": "AUTO PUSH TO GitHub'S GIST"
+	},
+	"clickPullGithub": {
+		"message": "CLICK TO PULL FROM GitHub'S GIST"
+	},
+	"clickPushGitee": {
+		"message": "CLICK TO PUSH TO Gitee'S GIST"
+	},
+	"autoPushGitee": {
+		"message": "AUTO PUSH TO Gitee'S GIST"
+	},
+	"clickPullGitee": {
+		"message": "CLICK TO PULL FROM Gitee'S GIST"
+	},
+	"waitForMinutes": {
+		"message": "minute wait for"
+	},
+	"close": {
+		"message": "close"
+	},
+	"days": {
+		"message": " day "
+	},
+	"hours": {
+		"message": " hour "
+	},
+	"minutes": {
+		"message": " minute "
+	},
+	"seconds": {
+		"message": " second "
+	},
+	"sourceCode": {
+		"message": "The source code for N-Tab is available at "
+	},
+	"usedSpace": {
+		"message": "UsedSpace : "
+	},
+	"autoSync": {
+		"message": "Open Sync"
+	},
+	"noLog": {
+		"message": "No log have been saved yet"
+	},
+	"noTabs": {
+		"message": "No tab groups have been saved yet, or you deleted them all..."
+	},
+	"showLog": {
+		"message": "Logs"
+	},
+	"secondWait": {
+		"message": " second wait"
+	},
+	"usedTime": {
+		"message": "usedTime:"
+	},
+	"backToTop": {
+		"message": "back to top"
+	},
+	"restoreGroup": {
+		"message": "Restore Group"
+	},
+	"deleteAll": {
+		"message": "Delete Group"
+	},
+	"importTextareaTip": {
+		"message": "please input the content right format."
+	},
+	"unLock": {
+		"message": "Cancle Lock"
+	},
+	"lock": {
+		"message": "Lock"
+	},
+	"toTop": {
+		"message": "Pin Group"
+	},
+	"noToTop": {
+		"message": "Cancle Pin"
+	},
+	"nameThis": {
+		"message": "Name Group"
+	},
+	"add": {
+		"message": "add"
+	},
+	"update": {
+		"message": "update"
+	},
+	"cancle": {
+		"message": "cancle"
+	},
+	"refresh": {
+		"message": "refresh"
+	},
+	"tabsMenu": {
+		"message": "tabs menu"
+	},
+	"remindMenu": {
+		"message": "remind menu"
+	},
+	"showError": {
+		"message": "Error!"
+	},
+	"goToOptions": {
+		"message": "Please go to the options page for configuration."
+	},
+	"githubToken": {
+		"message": "GitHub Token"
+	},
+	"giteeToken": {
+		"message": "Gitee Token"
+	},
+	"input": {
+		"message": "Please input "
+	},
+	"existed": {
+		"message": "All : "
+	},
+	"group": {
+		"message": " group"
+	},
+	"contract": {
+		"message": "If you have any questions, you can directly contact WeChat : scoful. Please state your source and purpose~"
+	},
+	"donate": {
+		"message": "Buy Me A Coffee"
+	},
+	"cannotDelete": {
+		"message": "Cannot delete while in locked state."
+	},
+	"cannotRecover": {
+		"message": "Cannot recover while in locked state."
+	},
+	"confirm": {
+		"message": "Confirm Deletion"
+	},
+	"confirmationDel": {
+		"message": "Are you sure you want to delete this item?"
+	},
+	"confirmationRecover": {
+		"message": "Are you sure you want to recover this item?"
+	},
+	"sendLeftTabs": {
+		"message": "Send All tabs on the left"
+	},
+	"sendRightTabs": {
+		"message": "Send All tabs on the right"
+	},
+	"showBaks": {
+		"message": "Recycle Bin"
+	},
+	"deleted": {
+		"message": "Deleted : "
+	},
+	"recover": {
+		"message": "Recover Group"
+	},
+	"noDelTabs": {
+		"message": "No tab groups have been deleted yet, or you deleted them all..."
+	}
+}
