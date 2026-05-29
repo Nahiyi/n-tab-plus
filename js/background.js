@@ -1,4 +1,3 @@
-console.log("background is done!");
 
 // 引入需要的库
 importScripts("moment.min.js");
@@ -24,6 +23,7 @@ let isLock = false;
 // 分类相关变量
 let categories = [];
 const DEFAULT_CATEGORY_ID = "cat_default";
+let contextMenuCreating = false;
 
 // 初始化分类数据
 function initCategories() {
@@ -36,6 +36,8 @@ function initCategories() {
             ];
             saveCategories();
         }
+        // 分类数据就绪后创建右键菜单
+        createContextMenu();
     });
 }
 
@@ -95,11 +97,9 @@ initCategories();
 chrome.runtime.onInstalled.addListener(function (details) {
     if (details.reason === 'install') {
         // 这里是插件第一次安装时要执行的代码
-        console.log('插件已被安装！');
         setTimer('inTimeSync', 3 * 1000);
     } else if (details.reason === 'update') {
         // 这里是插件更新时要执行的代码
-        console.log('插件已被更新！');
         setTimer('inTimeSync', 3 * 1000);
     }
 });
@@ -136,12 +136,10 @@ chrome.tabs.onCreated.addListener(function callback() {
 
 // 获取本机storage
 chrome.storage.local.get(function (storage) {
-    console.log(storage);
 });
 
 // 获取可同步storage
 chrome.storage.sync.get(function (storage) {
-    console.log(storage);
 });
 
 // 创建定时同步gitee任务，至于是否真的同步，要看设置
@@ -152,11 +150,9 @@ chrome.alarms.create("checkAutoSyncGithub", {delayInMinutes: 90, periodInMinutes
 
 // 检查是否同步github的gist
 function checkAutoSyncGithub() {
-    console.log("检查github是否同步")
     chrome.storage.local.get(null, function (items) {
         let autoSync = items.autoSync
         if (autoSync === true) {
-            console.log("autoSync open")
             startPushToGithubGist();
         }
     });
@@ -164,11 +160,9 @@ function checkAutoSyncGithub() {
 
 // 检查是否同步gitee的gist
 function checkAutoSyncGitee() {
-    console.log("检查gitee是否同步")
     chrome.storage.local.get(null, function (items) {
         let autoSync = items.autoSync
         if (autoSync === true) {
-            console.log("autoSync open")
             startPushToGiteeGist();
         }
     });
@@ -176,20 +170,16 @@ function checkAutoSyncGitee() {
 
 // 开始推送github的gist
 function startPushToGithubGist() {
-    console.log("开始推送github")
     handleGithubGistLog.length = 0;
     handleGithubGistLog.push(`${chrome.i18n.getMessage("start")}${moment().format('YYYY-MM-DD HH:mm:ss')}`);
     handleGithubGistLog.push(`${chrome.i18n.getMessage("autoPushToGithubGist")}`)
     chrome.storage.local.get(null, function (storage) {
-        console.log(storage.handleGistStatus);
         if (storage.handleGistStatus) {
-            console.log("handleGistStatus有值");
             if (storage.handleGistStatus.type === "IDLE") {
                 pushToGithubGist();
             } else {
                 let time = moment().format('YYYY-MM-DD HH:mm:ss');
                 let expireTime = storage.handleGistStatus.expireTime;
-                console.log(expireTime)
                 if (time > expireTime) {
                     pushToGithubGist();
                 } else {
@@ -200,7 +190,6 @@ function startPushToGithubGist() {
                 }
             }
         } else {
-            console.log("handleGistStatus没有值，第一次");
             pushToGithubGist();
         }
     });
@@ -208,20 +197,16 @@ function startPushToGithubGist() {
 
 // 开始推送gitee的gist
 function startPushToGiteeGist() {
-    console.log("开始推送gitee")
     handleGiteeGistLog.length = 0;
     handleGiteeGistLog.push(`${chrome.i18n.getMessage("start")}${moment().format('YYYY-MM-DD HH:mm:ss')}`);
     handleGiteeGistLog.push(`${chrome.i18n.getMessage("autoPushToGiteeGist")}`)
     chrome.storage.local.get(null, function (storage) {
-        console.log(storage.handleGistStatus);
         if (storage.handleGistStatus) {
-            console.log("handleGistStatus有值");
             if (storage.handleGistStatus.type === "IDLE") {
                 pushToGiteeGist();
             } else {
                 let time = moment().format('YYYY-MM-DD HH:mm:ss');
                 let expireTime = storage.handleGistStatus.expireTime;
-                console.log(expireTime)
                 if (time > expireTime) {
                     pushToGiteeGist();
                 } else {
@@ -232,7 +217,6 @@ function startPushToGiteeGist() {
                 }
             }
         } else {
-            console.log("handleGistStatus没有值，第一次");
             pushToGiteeGist();
         }
     });
@@ -240,7 +224,6 @@ function startPushToGiteeGist() {
 
 // 推送到github的gist
 function pushToGithubGist() {
-    console.log("推送github")
     setHandleGistStatus(`${chrome.i18n.getMessage("pushToGithubGistIng")}`);
     usedSeconds = 0;
     pushToGithubGistStatus = `${chrome.i18n.getMessage("startPushToGithubGistTask")}`;
@@ -258,14 +241,12 @@ function pushToGithubGist() {
                 setHandleGistLog(`${chrome.i18n.getMessage("autoPushGithub")}`, handleGithubGistLog);
             }
         }, 1000);
-        console.log(githubIntervalId)
         isStoredGithubTokenLocal("push_github");
     }
 }
 
 // 推送到gitee的gist
 function pushToGiteeGist() {
-    console.log("推送gitee")
     setHandleGistStatus(`${chrome.i18n.getMessage("pushToGiteeGistIng")}`);
     usedSeconds = 0;
     pushToGiteeGistStatus = `${chrome.i18n.getMessage("startPushToGiteeGistTask")}`;
@@ -283,23 +264,19 @@ function pushToGiteeGist() {
                 setHandleGistLog(`${chrome.i18n.getMessage("autoPushGitee")}`, handleGiteeGistLog);
             }
         }, 1000);
-        console.log(giteeIntervalId)
         isStoredGiteeTokenLocal("push_gitee");
     }
 }
 
 // 判断是否已经保存github的Token
 function isStoredGithubTokenLocal(action) {
-    console.log("是否已经保存github的Token")
     handleGithubGistLog.push(`${chrome.i18n.getMessage("startCheckGithubTokenSaved")}`);
     chrome.storage.local.get("githubGistToken", function (storage) {
         if (storage.githubGistToken) {
-            console.log("已经保存github的Token")
             handleGithubGistLog.push(`${chrome.i18n.getMessage("githubTokenSaved")}`);
             githubGistToken = storage.githubGistToken;
             isStoredGithubGistIdLocal(action);
         } else {
-            console.log("没有保存github的Token")
             handleGithubGistLog.push(`${chrome.i18n.getMessage("githubTokenNoSaved")}`);
             pushToGithubGistStatus = undefined;
         }
@@ -308,16 +285,13 @@ function isStoredGithubTokenLocal(action) {
 
 // 判断是否已经保存gitee的Token
 function isStoredGiteeTokenLocal(action) {
-    console.log("是否已经保存gitee的Token")
     handleGiteeGistLog.push(`${chrome.i18n.getMessage("startCheckGiteeTokenSaved")}`);
     chrome.storage.local.get("giteeGistToken", function (storage) {
         if (storage.giteeGistToken) {
-            console.log("已经保存gitee的Token")
             handleGiteeGistLog.push(`${chrome.i18n.getMessage("giteeTokenSaved")}`);
             giteeGistToken = storage.giteeGistToken;
             isStoredGiteeGistIdLocal(action);
         } else {
-            console.log("没有保存gitee的Token")
             handleGiteeGistLog.push(`${chrome.i18n.getMessage("giteeTokenNoSaved")}`);
             pushToGiteeGistStatus = undefined;
         }
@@ -326,24 +300,38 @@ function isStoredGiteeTokenLocal(action) {
 
 // 判断是否已经保存了github的gistId
 function isStoredGithubGistIdLocal(action) {
-    console.log("是否已经保存了github的gistId")
     handleGithubGistLog.push(`${chrome.i18n.getMessage("startCheckGistIdSaved")}`)
     chrome.storage.local.get("githubGistId", function (storage) {
         if (storage.githubGistId) {
-            console.log("已经保存了github的gistId")
             handleGithubGistLog.push(`${chrome.i18n.getMessage("gistIdSaved")}`)
             githubGistId = storage.githubGistId;
-            if (action === "push_github") {
-                getShardings(function (callback) {
-                    if (!callback || typeof callback == 'undefined') {
-                        updateGithubGist([]);
-                    } else {
-                        updateGithubGist(callback);
+            // 先验证gist是否还存在
+            fetch(gitHubApiUrl + "/gists/" + githubGistId, {
+                method: 'GET',
+                headers: {"Authorization": "token " + githubGistToken}
+            }).then(response => {
+                if (response.ok) {
+                    if (action === "push_github") {
+                        getShardings(function (callback) {
+                            if (!callback || typeof callback == 'undefined') {
+                                updateGithubGist([]);
+                            } else {
+                                updateGithubGist(callback);
+                            }
+                        })
                     }
-                })
-            }
+                } else if (response.status === 404) {
+                    handleGithubGistLog.push("gist已被删除，将重新创建");
+                    chrome.storage.local.remove("githubGistId");
+                    githubGistId = undefined;
+                    pushToGithubGistStatus = undefined;
+                } else {
+                    pushToGithubGistStatus = undefined;
+                }
+            }).catch(error => {
+                pushToGithubGistStatus = undefined;
+            });
         } else {
-            console.log("没有保存了github的gistId")
             handleGithubGistLog.push(`${chrome.i18n.getMessage("gistIdNoSaved")}`)
             pushToGithubGistStatus = undefined;
         }
@@ -352,24 +340,38 @@ function isStoredGithubGistIdLocal(action) {
 
 // 判断是否已经保存了gitee的gistId
 function isStoredGiteeGistIdLocal(action) {
-    console.log("是否已经保存了gitee的gistId")
     handleGiteeGistLog.push(`${chrome.i18n.getMessage("startCheckGistIdSaved")}`)
     chrome.storage.local.get("giteeGistId", function (storage) {
         if (storage.giteeGistId) {
-            console.log("已经保存了gitee的gistId")
             handleGiteeGistLog.push(`${chrome.i18n.getMessage("gistIdSaved")}`)
             giteeGistId = storage.giteeGistId;
-            if (action === "push_gitee") {
-                getShardings(function (callback) {
-                    if (!callback || typeof callback == 'undefined') {
-                        updateGiteeGist([]);
-                    } else {
-                        updateGiteeGist(callback);
+            // 先验证gist是否还存在
+            fetch(giteeApiUrl + "/gists/" + giteeGistId, {
+                method: 'GET',
+                headers: {"Authorization": "token " + giteeGistToken}
+            }).then(response => {
+                if (response.ok) {
+                    if (action === "push_gitee") {
+                        getShardings(function (callback) {
+                            if (!callback || typeof callback == 'undefined') {
+                                updateGiteeGist([]);
+                            } else {
+                                updateGiteeGist(callback);
+                            }
+                        })
                     }
-                })
-            }
+                } else if (response.status === 404) {
+                    handleGiteeGistLog.push("gist已被删除，将重新创建");
+                    chrome.storage.local.remove("giteeGistId");
+                    giteeGistId = undefined;
+                    pushToGiteeGistStatus = undefined;
+                } else {
+                    pushToGiteeGistStatus = undefined;
+                }
+            }).catch(error => {
+                pushToGiteeGistStatus = undefined;
+            });
         } else {
-            console.log("没有保存了gitee的gistId")
             handleGiteeGistLog.push(`${chrome.i18n.getMessage("gistIdNoSaved")}`)
             pushToGiteeGistStatus = undefined;
         }
@@ -378,7 +380,6 @@ function isStoredGiteeGistIdLocal(action) {
 
 // 更新github的gist
 function updateGithubGist(content) {
-    console.log("更新github的gist")
     handleGithubGistLog.push(`${chrome.i18n.getMessage("directUpdate")}`)
     let _content = JSON.stringify(content);
     let data = {
@@ -386,6 +387,7 @@ function updateGithubGist(content) {
             "n-tab-plus.json": {"content": _content}
         }
     }
+    let requestUrl = gitHubApiUrl + "/gists/" + githubGistId;
     let myHeaders = new Headers();
     myHeaders.append("Authorization", "token " + githubGistToken)
     myHeaders.append("accept", "application/vnd.github+json")
@@ -394,30 +396,24 @@ function updateGithubGist(content) {
         method: 'PATCH', headers: myHeaders, body: JSON.stringify(data),
     };
 
-    fetch(gitHubApiUrl + "/gists/" + githubGistId, requestOptions)
+    fetch(requestUrl, requestOptions)
         .then(response => {
             if (response.status === 200) {
-                console.log("更新成功")
                 handleGithubGistLog.push(`${chrome.i18n.getMessage("updateSuccess")}`)
             } else {
-                console.log("更新失败")
                 handleGithubGistLog.push(`${chrome.i18n.getMessage("updateFailed")}`)
             }
         })
         .catch(error => {
-            console.log('error', error)
             handleGithubGistLog.push(`${chrome.i18n.getMessage("updateFailed")}-->${error.toString()}`)
         })
         .finally(() => {
-            // 请求完成时触发，无论成功还是失败
-            console.log('Request completed');
             pushToGithubGistStatus = undefined;
         });
 }
 
 // 更新gitee的gist
 function updateGiteeGist(content) {
-    console.log("更新gitee的gist")
     handleGiteeGistLog.push(`${chrome.i18n.getMessage("directUpdate")}`)
     let _content = JSON.stringify(content);
     let data = {
@@ -425,6 +421,7 @@ function updateGiteeGist(content) {
             "n-tab-plus.json": {"content": _content}
         }
     }
+    let requestUrl = giteeApiUrl + "/gists/" + giteeGistId;
     let myHeaders = new Headers();
     myHeaders.append("Authorization", "token " + giteeGistToken)
     myHeaders.append("Content-Type", "application/json");
@@ -432,25 +429,18 @@ function updateGiteeGist(content) {
         method: 'PATCH', headers: myHeaders, body: JSON.stringify(data),
     };
 
-    fetch(giteeApiUrl + "/gists/" + giteeGistId, requestOptions)
+    fetch(requestUrl, requestOptions)
         .then(response => {
-            console.log(response)
             if (response.status === 200) {
-                console.log("更新成功")
-                console.log(response.json())
                 handleGiteeGistLog.push(`${chrome.i18n.getMessage("updateSuccess")}`)
             } else {
-                console.log("更新失败")
                 handleGiteeGistLog.push(`${chrome.i18n.getMessage("updateFailed")}`)
             }
         })
         .catch(error => {
-            console.log('error', error)
             handleGiteeGistLog.push(`${chrome.i18n.getMessage("updateFailed")}-->${error.toString()}`)
         })
         .finally(() => {
-            // 请求完成时触发，无论成功还是失败
-            console.log('Request completed');
             pushToGiteeGistStatus = undefined;
         });
 }
@@ -460,7 +450,6 @@ function setHandleGistLog(type, handleGistLog) {
     let handleGistLogMap = {id: genObjectId(), handleGistType: type, handleGistLogs: handleGistLog};
     chrome.storage.local.get(null, function (storage) {
         if (storage.gistLog) {
-            console.log("gistLog有值");
             if (storage.gistLog.length >= 100) {
                 let newArr = storage.gistLog;
                 newArr.splice(-1, 1)
@@ -472,7 +461,6 @@ function setHandleGistLog(type, handleGistLog) {
                 chrome.storage.local.set({gistLog: newArr});
             }
         } else {
-            console.log("gistLog没有值，第一次");
             chrome.storage.local.set({gistLog: [handleGistLogMap]});
         }
     });
@@ -499,7 +487,6 @@ function isEnglish(str) {
 
 // 调用腾讯交互翻译api
 function translateFunc(txt) {
-    console.log("开始翻译！");
     let source = "en"
     let target = "zh"
     if (isChinese(txt)) {
@@ -532,16 +519,13 @@ function translateFunc(txt) {
     fetch(url, requestOptions)
         .then(response => response.json())
         .then(result => {
-            console.log(result.header.ret_code)
             if (result.header.ret_code) {
-                console.log(result.auto_translation[0]);
                 sendMessageToContentScript("translateResult", result.auto_translation[0]);
             } else {
                 sendMessageToContentScript("translateResult", "--FAILED--!");
             }
         })
         .catch(error => {
-            console.log('error', error)
             sendMessageToContentScript("translateResult", "--ERROR,may be lost network--!");
         });
 }
@@ -609,7 +593,6 @@ function sendMessageToContentScript(action, message) {
     chrome.tabs.query({active: true, currentWindow: true}, function (res) {
         chrome.tabs.sendMessage(res[0].id, {action: action, message: message}, function (response) {
             if (response === 'ok') {
-                console.log("background-->content发送的消息被消费了");
             }
         });
     });
@@ -793,7 +776,6 @@ function saveShardings(tabGroup, type) {
         chrome.storage.local.set(tabGroupSlices);
     } else {
         // 字符串为空或为 null 或 undefined 的逻辑
-        console.log('为空或为null/undefined');
     }
 }
 
@@ -836,7 +818,6 @@ function getShardings(cb) {
 
 // 持续监听，假如锁屏或者睡眠就清空定时任务，激活再重新定时任务
 chrome.idle.onStateChanged.addListener(function (newState) {
-    console.log(newState)
     if (newState === "active") {
         if (isLock) {
             chrome.alarms.create("checkAutoSyncGitee", {delayInMinutes: 70, periodInMinutes: 70});
@@ -847,26 +828,21 @@ chrome.idle.onStateChanged.addListener(function (newState) {
     if (newState === "locked") {
         isLock = true;
         chrome.alarms.clearAll(function (wasCleared) {
-            console.log(wasCleared)
         });
     }
     chrome.alarms.getAll(function (alarms) {
-        console.log(alarms)
     });
 });
 
 // 持续监听响应定时任务
 chrome.alarms.onAlarm.addListener(function (alarm) {
     if (alarm.name === "checkAutoSyncGitee") {
-        console.log("自动同步gitee")
         checkAutoSyncGitee();
     }
     if (alarm.name === "checkAutoSyncGithub") {
-        console.log("自动同步github")
         checkAutoSyncGithub();
     }
     if (alarm.name === "inTimeSync") {
-        // console.log("实时同步触发")
         subtractAll()
 
         setTimer('inTimeSync', 3 * 1000);
@@ -935,48 +911,39 @@ chrome.commands.onCommand.addListener(function (command) {
 // 持续监听storage是否修改
 chrome.storage.onChanged.addListener(function (changes, areaName) {
     let flag = false;
-    console.log(changes)
-    console.log(areaName)
     for (let key in changes) {
         if (key.indexOf("tabGroups") !== -1 || key.indexOf("del_tabGroups") !== -1) {
-            console.log(key)
             if (key.indexOf("tabGroups_num") === -1 || key.indexOf("del_tabGroups_num") === -1) {
                 flag = true;
             }
         }
     }
     if (areaName === "local" && flag) {
-        console.log("要同步")
         chrome.storage.local.get(null, async function (items) {
             let autoSync = items.autoSync
             if (autoSync === true) {
-                console.log("autoSync open")
                 // 有storage变化就安全数字+1，因为storage不知道底层是怎么实现的，一个set操作，可能会触发多次onChanged，会变相变成并发操作
                 await add()
             }
         });
     } else {
-        console.log("不要同步")
     }
 });
 
-// Add a listener to create the initial context menu items,
-// context menu items only need to be created at runtime.onInstalled
-chrome.runtime.onInstalled.addListener(async () => {
-    // 创建右键菜单
-    createContextMenu();
-});
+// 右键菜单由 initCategories() -> saveCategories() 触发 storage.onChanged 统一创建，
+// 这里不再重复调用，避免 removeAll 和 create 竞争导致菜单丢失
 
 // 监听 storage 变化，当分类数据变化时更新右键菜单
 chrome.storage.onChanged.addListener(function(changes, namespace) {
-    if (namespace === 'local' && changes.categories) {
-        console.log('分类数据变化，更新右键菜单');
+    if (namespace === 'local' && changes.categories && !contextMenuCreating) {
         createContextMenu();
     }
 });
 
 // 创建右键菜单
 function createContextMenu() {
+    if (contextMenuCreating) return;
+    contextMenuCreating = true;
     // 先清除所有现有菜单
     chrome.contextMenus.removeAll(function() {
         // 发送当前标签 - 父菜单
@@ -1068,12 +1035,12 @@ function addCategorySubMenus() {
                 contexts: ["all"]
             });
         });
+        contextMenuCreating = false;
     });
 }
 
 // 持续监听菜单栏的点击
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
-    console.log(info, tab);
     let menuItemId = info.menuItemId;
     
     // 处理带分类的菜单点击
@@ -1376,19 +1343,15 @@ const safeOperation = new SafeNumberOperation();
 // 安全+1
 async function add() {
     const result1 = await safeOperation.add(1);
-    console.log('After adding 1:', result1);
 
-    console.log('Current value:', safeOperation.getValue());
 }
 
 // 安全清零，清空storage连续变化导致的数字累加，并顺便推送到gist，相当于缓存了一部分后直接清空并推送
 async function subtractAll() {
     const current = safeOperation.getValue();
-    // console.log('Current value:', current);
     if (current > 0) {
         startPushToGiteeGist();
         await safeOperation.subtractAll();
-        console.log('Current value after subtracting all:', safeOperation.getValue());
     }
 }
 

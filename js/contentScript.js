@@ -1,4 +1,3 @@
-console.log("content_script is done!!");
 let pageX;
 let pageY;
 let scrollTop;
@@ -9,13 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // 鼠标划词（双击取词或者滑动取词）
     $(document).mouseup(function (e) {
         let txt = window.getSelection();
-        console.log(txt.toString())
         if (txt.toString().trim().length > 0) {
-            chrome.storage.local.get('dragOpenTranslate', function (storage) {
-                if (storage.dragOpenTranslate) {
-                    sendMessageToBackground("translate", txt.toString());
-                }
-            });
+            if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                chrome.storage.local.get('dragOpenTranslate', function (storage) {
+                    if (storage.dragOpenTranslate) {
+                        sendMessageToBackground("translate", txt.toString());
+                    }
+                });
+            }
         }
     });
 
@@ -30,9 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         pageY = e.pageY;
         scrollTop = $(document).scrollTop();
         scrollLeft = $(document).scrollLeft();
-        // console.log("x is " + pageX + ", y is " + pageY);
-        // console.log("scrollTop is " + scrollTop + ", scrollLeft is " + scrollLeft);
-        // console.log("x1 is " + parseInt(pageY - scrollTop) + ", y1 is " + parseInt(pageX - scrollLeft));
 
         // 获取弹窗元素
         let popup = document.getElementById('descDiv');
@@ -76,7 +73,6 @@ function hidePopup() {
 function sendMessageToBackground(action, message) {
     chrome.runtime.sendMessage({action: action, message: message}, function (res) {
         if (res === 'ok') {
-            console.log("content-->background发送的消息被消费了");
         }
     });
 }
