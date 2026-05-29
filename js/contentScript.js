@@ -9,12 +9,17 @@ document.addEventListener('DOMContentLoaded', function () {
     $(document).mouseup(function (e) {
         let txt = window.getSelection();
         if (txt.toString().trim().length > 0) {
-            if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
-                chrome.storage.local.get('dragOpenTranslate', function (storage) {
-                    if (storage.dragOpenTranslate) {
-                        sendMessageToBackground("translate", txt.toString());
-                    }
-                });
+            try {
+                if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                    chrome.storage.local.get('dragOpenTranslate', function (storage) {
+                        if (chrome.runtime.lastError) return;
+                        if (storage && storage.dragOpenTranslate) {
+                            sendMessageToBackground("translate", txt.toString());
+                        }
+                    });
+                }
+            } catch (e) {
+                // 扩展上下文已失效，忽略
             }
         }
     });
@@ -71,10 +76,16 @@ function hidePopup() {
 
 // 主动发送消息给后台
 function sendMessageToBackground(action, message) {
-    chrome.runtime.sendMessage({action: action, message: message}, function (res) {
-        if (res === 'ok') {
-        }
-    });
+    try {
+        chrome.runtime.sendMessage({action: action, message: message}, function (res) {
+            if (chrome.runtime.lastError) {
+                // 扩展被重新加载/更新，旧的 content script 上下文已失效，忽略
+                return;
+            }
+        });
+    } catch (e) {
+        // 扩展上下文已失效，忽略
+    }
 }
 
 // 持续监听发送给contentscript的消息
